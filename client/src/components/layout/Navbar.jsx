@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../utils/UserContext";
 import axiosInstance from "../utils/axiosInstanse";
-import { Center, Text, Box, Flex } from "@chakra-ui/react";
+import { Center, Text, Box, Flex, Link as ChakraLink } from "@chakra-ui/react";
 
 function Navbar() {
   const { user, setUser } = useUser();
@@ -34,40 +34,76 @@ function Navbar() {
     }
   }
 
-
   return (
-    <Flex 
-      as="nav" 
-      position="fixed" 
-      top="0" 
-      left="0" 
-      width="100%" 
-      backgroundColor="white" 
-      boxShadow="md" 
-      padding="10px 20px" 
+    <Flex
+      as="nav"
+      position="fixed"
+      top="0"
+      left="0"
+      width="100%"
+      backgroundColor="white"
+      boxShadow="md"
+      padding="10px 20px"
     >
-      <Center width="95%" justifyContent="space-between">
+      <Center
+        borderColor={"#FED7D7"}
+        borderWidth={1}
+        borderStyle={"groove"}
+        borderRadius={250}
+        boxShadow="0 0 10px rgba(255, 0, 0, 0.3)"
+        backgroundColor={"#white"}
+        width="98%"
+        justifyContent="space-between"
+      >
         <Link to="/">
-        <Text fontSize="xl" fontWeight="bold" ml="20px">Tea sort</Text>
+          <Text
+            fontSize="xl"
+            fontWeight="bold"
+            ml="20px"
+            style={{ color: "#e60023" }}
+          >
+            Tea sort
+          </Text>
         </Link>
-        <Center gap={5}>
+        <Center gap={15}>
           {user?.name && <Text>Привет, {user?.name}!</Text>}
           {!user ? (
             <>
               <Box>
-                <Link to="/signup">Регистрация</Link>
+                <ChakraLink
+                  cursor={"pointer"}
+                  color={"rgb(230, 0, 35)"}
+                  _hover={{ color: "black" }}
+                  href="/signup"
+                >
+                  Регистрация
+                </ChakraLink>
               </Box>
-              <Box>
-                <Link to="/login">Вход</Link>
+              <Box mr={50}>
+                <ChakraLink
+                  cursor={"pointer"}
+                  color={"rgb(230, 0, 35)"}
+                  _hover={{ color: "black" }}
+                  href="/login"
+                >
+                  Вход
+                </ChakraLink>
               </Box>
             </>
           ) : (
             <>
+             <Link to="/comments" style={{ color: "#e60023" }}>
+                  Информация
+                </Link>
               <Box>
-                <Link to="/profile">Профиль</Link>
+                <Link to="/profile" style={{ color: "#e60023" }}>
+                  Личный кабинет
+                </Link>
               </Box>
-              <Box>
-                <Link onClick={logout}>Выход</Link>
+              <Box mr={50}>
+                <Link onClick={logout} style={{ color: "#e60023" }}>
+                  Выход
+                </Link>
               </Box>
             </>
           )}
@@ -75,7 +111,6 @@ function Navbar() {
       </Center>
     </Flex>
   );
-
 }
 
 export default Navbar;
