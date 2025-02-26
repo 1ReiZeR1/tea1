@@ -6,6 +6,7 @@ import { UserProvider } from "./components/utils/UserContext";
 import Navbar from "./components/layout/Navbar";
 import "./app.css";
 import Home from "./components/pages/Home";
+import AddComment from "./components/pages/AddComment";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/signup" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/comments" element={<AddComment />} />
           </Routes>
         </div>
       </BrowserRouter>
