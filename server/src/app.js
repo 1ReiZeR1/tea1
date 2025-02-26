@@ -10,6 +10,10 @@ const messageRouter = require('./routes/message.router');
 const profileRouter = require('./routes/profile.router');
 const likeRouter = require('./routes/like.router');
 
+const teaRoutes = require("./routes/teaRoutes");
+
+const commentsRouter = require("./routes/comments.router");
+
 const app = express();
 
 const corsOptions = {
@@ -34,5 +38,10 @@ app.use("/api/tokens", tokenRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/like", likeRouter);
+
+app.use("/api/teas", teaRoutes);
+
+app.use("/api/comments", commentsRouter);
+
 
 module.exports = app;
