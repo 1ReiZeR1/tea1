@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../utils/UserContext";
 import axiosInstance from "../utils/axiosInstanse";
-import { Center, Text, Box } from "@chakra-ui/react";
+import { Center, Text, Box, Flex } from "@chakra-ui/react";
 
 function Navbar() {
   const { user, setUser } = useUser();
@@ -36,12 +36,23 @@ function Navbar() {
 
 
   return (
-    <nav className="navbar">
-      <Center gap={100}>
-      <Link to="/"><h2>Щебетатель</h2></Link>
-        <Center gap={10}>
+    <Flex 
+      as="nav" 
+      position="fixed" 
+      top="0" 
+      left="0" 
+      width="100%" 
+      backgroundColor="white" 
+      boxShadow="md" 
+      padding="10px 20px" 
+    >
+      <Center width="95%" justifyContent="space-between">
+        <Link to="/">
+        <Text fontSize="xl" fontWeight="bold" ml="20px">Tea sort</Text>
+        </Link>
+        <Center gap={5}>
           {user?.name && <Text>Привет, {user?.name}!</Text>}
-          {!user && (
+          {!user ? (
             <>
               <Box>
                 <Link to="/signup">Регистрация</Link>
@@ -50,19 +61,21 @@ function Navbar() {
                 <Link to="/login">Вход</Link>
               </Box>
             </>
+          ) : (
+            <>
+              <Box>
+                <Link to="/profile">Профиль</Link>
+              </Box>
+              <Box>
+                <Link onClick={logout}>Выход</Link>
+              </Box>
+            </>
           )}
-          {user && <Box>
-            <Link to="/profile">Профиль</Link>
-          </Box>}
-          {user && (
-            <Box>
-              <Link onClick={logout}>Выход</Link>
-            </Box>
-          )}
+        </Center>
       </Center>
-      </Center>
-    </nav>
+    </Flex>
   );
+
 }
 
 export default Navbar;
