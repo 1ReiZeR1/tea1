@@ -36,6 +36,9 @@ function Profile() {
 
 
   useEffect(() => {
+    if(!user || user?.isAdmin) {
+      return 
+    }
     axios
       .get("http://localhost:3000/api/comments/latest", {
         withCredentials: true,
@@ -45,7 +48,7 @@ function Profile() {
       .catch((error) =>
         console.error("Ошибка при загрузке комментариев:", error)
       );
-  }, []);
+  }, [user]);
 
   // Функция удаления чая
   const handleDelete = async (id) => {
