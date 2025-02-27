@@ -28,15 +28,15 @@ const SvgMapComponent = () => {
             CN: {
               // ПОМЕНЯТЬ РУТЫ
               gdp: "Эрл Грей, Белый чай Бай Му Дань, Улун Те Гуань Инь, Пуэр, Жасминовый чай, Лапсанг Сушонг, Хуан Шань Мао Фэн",
-              link: "/auth/login",
+              link: "/login",
             },
-            IN: { gdp: "Дарджилинг, Ассам", link: "/auth/login", color:"yellow" },
+            IN: { gdp: "Дарджилинг, Ассам", link: "/login", color:"yellow" },
             JP: {
               gdp: "Зелёный чай Сенча, Маття, Спирулина Чай",
-              link: "/auth/login",
+              link: "/login",
             },
-            ZA: { gdp: "Ройбуш", link: "/auth/login", color:"yellow" },
-            EG: { gdp: "Мята перечная", link: "/auth/login", color:"yellow" },
+            ZA: { gdp: "Ройбуш", link: "/login", color:"yellow" },
+            EG: { gdp: "Мята перечная", link: "/login", color:"yellow" },
             // ПОМЕНЯТЬ РУТЫ
           },
         },

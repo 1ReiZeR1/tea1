@@ -37,6 +37,7 @@ function Navbar() {
 
   return (
     <Flex
+      zIndex="1000"
       as="nav"
       position="fixed"
       top="0"
