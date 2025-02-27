@@ -15,7 +15,7 @@ function Navbar() {
 
   async function getRefreshToken() {
     try {
-      const response = await axiosInstance.get("/tokens/refresh", {
+      const response = await axiosInstance.get("/api/tokens/refresh", {
         withCredentials: true,
       });
       const user = response.data.user;
@@ -34,21 +34,22 @@ function Navbar() {
     }
   }
 
-
   return (
-    <Flex 
-      as="nav" 
-      position="fixed" 
-      top="0" 
-      left="0" 
-      width="100%" 
-      backgroundColor="white" 
-      boxShadow="md" 
-      padding="10px 20px" 
+    <Flex
+      as="nav"
+      position="fixed"
+      top="0"
+      left="0"
+      width="100%"
+      backgroundColor="white"
+      boxShadow="md"
+      padding="10px 20px"
     >
       <Center width="95%" justifyContent="space-between">
         <Link to="/">
-        <Text fontSize="xl" fontWeight="bold" ml="20px">Tea sort</Text>
+          <Text fontSize="xl" fontWeight="bold" ml="20px">
+            Tea_Ceremony
+          </Text>
         </Link>
         <Center gap={5}>
           {user?.name && <Text>Привет, {user?.name}!</Text>}
@@ -75,7 +76,6 @@ function Navbar() {
       </Center>
     </Flex>
   );
-
 }
 
 export default Navbar;
