@@ -6,22 +6,22 @@ import { Center, Text, Flex, Link as ChakraLink } from "@chakra-ui/react";
 export default function Footer() {
   return (
     <Flex
+      zIndex="1000"
       as="footer"
       position="fixed"
       bottom="0"
       left="0"
       width="100%"
-      backgroundColor="white"
       boxShadow="md"
       padding="10px 20px"
     >
       <Center
+        backgroundColor={'white'}
         borderColor="#FED7D7"
         borderWidth={1}
         borderStyle="groove"
         borderRadius={250}
         boxShadow="0 0 10px rgba(255, 0, 0, 0.3)"
-        backgroundColor="white"
         width="98%"
         justifyContent="center"
       >

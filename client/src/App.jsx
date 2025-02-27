@@ -6,7 +6,7 @@ import { UserProvider } from "./components/utils/UserContext";
 import Navbar from "./components/layout/Navbar";
 import "./app.css";
 import Home from "./components/pages/Home";
-import AddComment from "./components/pages/AddComment";
+import TeaPage from "./components/pages/TeaPage";
 import Footer from "./components/layout/Footer";
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
             <Route path="/signup" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/comments" element={<AddComment />} />
+             <Route path="/teas" element={<TeaPage />} />
+
           </Routes>
           <Footer />
         </div>

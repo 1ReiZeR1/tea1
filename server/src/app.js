@@ -6,12 +6,9 @@ const morgan = require('morgan');
 
 const authRouter = require("./routes/auth.router");
 const tokenRouter = require('./routes/token.router');
-const messageRouter = require('./routes/message.router');
 const profileRouter = require('./routes/profile.router');
-const likeRouter = require('./routes/like.router');
 
 const teaRoutes = require("./routes/teaRoutes");
-
 const commentsRouter = require("./routes/comments.router");
 
 const app = express();
@@ -34,9 +31,7 @@ app.use(removeHeader);
 
 app.use("/api/auth", authRouter);
 app.use("/api/tokens", tokenRouter);
-app.use("/api/message", messageRouter);
 app.use("/api/profile", profileRouter);
-app.use("/api/like", likeRouter);
 
 app.use("/api/teas", teaRoutes);
 
