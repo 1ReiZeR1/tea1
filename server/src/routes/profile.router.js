@@ -1,7 +1,29 @@
 const express = require("express");
 const router = express.Router();
-const { Message } = require("../../db/models");
 const { verifyRefreshToken } = require("../middlewares/verifyToken");
+const { Comment, User, Message, Tea } = require("../../db/models");
+
+router.get("/latest", verifyRefreshToken, async (req, res) => {
+  try {
+    const comments = await Comment.findAll({
+      limit: 10,
+      where: { userId: res.locals.user.id}, // только если есть мидлварка verifyRefreshToken тогда есть user
+      order: [["createdAt", "DESC"]],
+      include: [
+        { model: User, attributes: ["name"] }, 
+        { model: Tea, attributes: ["name"] },
+      ],
+    });
+    if (comments.length === 0) {
+      return res.status(404).json({ message: "Комментарии не найдены" });
+    }
+    res.json(comments);
+  }
+  catch {
+    console.error("Ошибка при загрузке комментариев:", error);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+})
 
   router.get("/", verifyRefreshToken, async (req, res) => {   
     try {
