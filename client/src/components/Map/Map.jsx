@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import svgMap from "svgmap";
@@ -12,9 +13,8 @@ const SvgMapComponent = () => {
       const map = new svgMap({
         targetElementID: "svgMap",
         colorMax: "green",
-        colorMin: "yellow",
         colorNoData: "white",
-        noDataText: "Здесь чай не растет...",
+        noDataText: "Здесь нет чайных плантаций...",
         data: {
           data: {
             gdp: {
@@ -26,13 +26,17 @@ const SvgMapComponent = () => {
           applyData: "gdp",
           values: {
             CN: {
+              // ПОМЕНЯТЬ РУТЫ
               gdp: "Эрл Грей, Белый чай Бай Му Дань, Улун Те Гуань Инь, Пуэр, Жасминовый чай, Лапсанг Сушонг, Хуан Шань Мао Фэн",
-              link: '/auth/login' },
-            IN: { gdp: "Дарджилинг, Ассам", 
-              link: '/auth/login' },
-            JP: { gdp: "Зелёный чай Сенча, Маття, Спирулина Чай",link: '/auth/login' },
-            ZA: { gdp: "Ройбуш", link: '/auth/login' },
-            EG: { gdp: "Мята перечная", link: '/auth/login' },
+              link: "/auth/login",
+            },
+            IN: { gdp: "Дарджилинг, Ассам", link: "/auth/login", color:"yellow" },
+            JP: {
+              gdp: "Зелёный чай Сенча, Маття, Спирулина Чай",
+              link: "/auth/login",
+            },
+            ZA: { gdp: "Ройбуш", link: "/auth/login", color:"yellow" },
+            EG: { gdp: "Мята перечная", link: "/auth/login", color:"yellow" },
             // ПОМЕНЯТЬ РУТЫ
           },
         },
@@ -40,7 +44,12 @@ const SvgMapComponent = () => {
     }
   }, []);
 
-  return <div id="svgMap" style={{ width: "100%", height: "250px" }}></div>;
+  return (
+    <>
+      <div id="svgMap" style={{ width: "80%", justifyContent:"center" }}>  
+      </div>
+    </>
+  );
 };
 
 export default SvgMapComponent;

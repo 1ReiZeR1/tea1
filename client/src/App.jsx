@@ -7,6 +7,7 @@ import Navbar from "./components/layout/Navbar";
 import "./app.css";
 import Home from "./components/pages/Home";
 import AddComment from "./components/pages/AddComment";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -14,14 +15,14 @@ function App() {
       <BrowserRouter>
         <div className="app-container">
           <Navbar />
-
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/comments" element={<AddComment />} />
           </Routes>
+          <Footer />
         </div>
       </BrowserRouter>
     </UserProvider>
