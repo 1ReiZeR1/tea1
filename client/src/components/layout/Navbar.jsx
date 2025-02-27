@@ -15,7 +15,7 @@ function Navbar() {
 
   async function getRefreshToken() {
     try {
-      const response = await axiosInstance.get("/tokens/refresh", {
+      const response = await axiosInstance.get("/api/tokens/refresh", {
         withCredentials: true,
       });
       const user = response.data.user;
@@ -35,6 +35,15 @@ function Navbar() {
   }
 
   return (
+    <Flex
+      as="nav"
+      position="fixed"
+      top="0"
+      left="0"
+      width="100%"
+      backgroundColor="white"
+      boxShadow="md"
+      padding="10px 20px"
     <Flex
       as="nav"
       position="fixed"

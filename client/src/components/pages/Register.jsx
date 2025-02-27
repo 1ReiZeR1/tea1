@@ -29,7 +29,7 @@ const LoginRegister = () => {
     setError("");
     try {
     
-      const response = await axiosInstance.post("auth/signup", formData, {
+      const response = await axiosInstance.post("api/auth/signup", formData, {
         withCredentials: true,
       });
 
