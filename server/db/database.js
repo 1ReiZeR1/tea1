@@ -1,23 +1,15 @@
 module.exports = {
   development: {
-    username: "postgres",
-    password: '456852',
-    database: "exam2",
-    host: "localhost",
-    dialect: "postgres",
+    use_env_variable: "DB"
   },
   test: {
-    username: "postgres",
-    password: '456852',
-    database: "exam2",
-    host: "localhost",
-    dialect: "postgres",
+    use_env_variable: "DB"
   },
   production: {
-    username: "postgres",
-    password: '456852',
-    database: "exam2",
-    host: "localhost",
-    dialect: "postgres",
-  },
+    username: "root",
+    password: null,
+    database: "database_production",
+    host: "127.0.0.1",
+    dialect: "mysql"
+  }
 };

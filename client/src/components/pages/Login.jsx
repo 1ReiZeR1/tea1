@@ -29,7 +29,7 @@ const Login = () => {
   
     try {
         const response = await axiosInstance.post(
-            "/auth/login",
+            "/api/auth/login",
             formData,
             {
               withCredentials: true,
