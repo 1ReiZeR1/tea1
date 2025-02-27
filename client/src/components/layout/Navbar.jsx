@@ -65,6 +65,9 @@ function Navbar() {
             Tea sort
           </Text>
         </Link>
+              
+        <Link to="/teas">Чайная коллекция</Link>
+
         <Center gap={15}>
           {user?.name && <Text>Привет, {user?.name}!</Text>}
           {!user ? (
@@ -92,9 +95,7 @@ function Navbar() {
             </>
           ) : (
             <>
-             <Link to="/comments" style={{ color: "#e60023" }}>
-                  Информация
-                </Link>
+
               <Box>
                 <Link to="/profile" style={{ color: "#e60023" }}>
                   Личный кабинет
