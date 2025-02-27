@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../utils/UserContext";
@@ -15,7 +16,7 @@ function Navbar() {
 
   async function getRefreshToken() {
     try {
-      const response = await axiosInstance.get("/tokens/refresh", {
+      const response = await axiosInstance.get("/api/tokens/refresh", {
         withCredentials: true,
       });
       const user = response.data.user;
@@ -36,14 +37,16 @@ function Navbar() {
 
   return (
     <Flex
+      zIndex="1000"
       as="nav"
       position="fixed"
       top="0"
       left="0"
-      width="100%"
-      backgroundColor="white"
+      width="98%"
+      
       boxShadow="md"
       padding="10px 20px"
+      justifyContent="center"
     >
       <Center
         borderColor={"#FED7D7"}
@@ -60,7 +63,7 @@ function Navbar() {
             fontSize="xl"
             fontWeight="bold"
             ml="20px"
-            style={{ color: "#e60023" }}
+            style={{ color: "black" }}
           >
             Tea sort
           </Text>
@@ -92,16 +95,16 @@ function Navbar() {
             </>
           ) : (
             <>
-             <Link to="/comments" style={{ color: "#e60023" }}>
-                  Информация
-                </Link>
+              <Link to="/comments" style={{ color: "black" }}>
+                Информация
+              </Link>
               <Box>
-                <Link to="/profile" style={{ color: "#e60023" }}>
+                <Link to="/profile" style={{ color: "black" }}>
                   Личный кабинет
                 </Link>
               </Box>
               <Box mr={50}>
-                <Link onClick={logout} style={{ color: "#e60023" }}>
+                <Link onClick={logout} style={{ color: "black" }}>
                   Выход
                 </Link>
               </Box>
