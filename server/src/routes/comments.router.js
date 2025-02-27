@@ -1,46 +1,43 @@
 const express = require("express");
-const { Comment, User, Tea } = require("../../db/models");
 const router = express.Router();
-const { verifyRefreshToken } = require("../middlewares/verifyToken");
-const { where } = require("sequelize");
+const { Comment, User } = require("../../db/models");
+const { verifyAccessToken } = require("../middlewares/verifyToken");
 
-router.post("/", async (req, res) => {
+
+router.get("/:teaId", async (req, res) => {
   try {
-    const { comment_text, teaId, userId } = req.body;
-
-    const newComment = await Comment.create({
-      comment_text,
-      teaId,
-      userId,
+    const { teaId } = req.params;
+    const comments = await Comment.findAll({
+      where: { teaId: teaId },
+      include: [User],
+      order: [['createdAt', 'ASC']] 
     });
-
-    res.status(201).json(newComment);
+    res.json(comments);
   } catch (error) {
-    console.error("Ошибка при создании комментария:", error);
-    res.status(500).json({ error: "Ошибка сервера" });
+    console.error(error);
+    res.status(500).send("Ошибка сервера");
   }
 });
 
-router.get("/latest", verifyRefreshToken, async (req, res) => {
+router.post("/", verifyAccessToken, async (req, res) => {
   try {
-    const comments = await Comment.findAll({
-      limit: 10,
-      where: { userId: res.locals.user.id}, // только если есть мидлварка verifyRefreshToken тогда есть user
-      order: [["createdAt", "DESC"]],
-      include: [
-        { model: User, attributes: ["name"] },
-        { model: Tea, attributes: ["name"] },
-      ],
+    const { teaId, comment_text } = req.body;
+    const userId = res.locals.user.id;
+    const newComment = await Comment.create({
+      userId: userId,
+      teaId: teaId,
+      comment_text: comment_text,
     });
 
-    if (comments.length === 0) {
-      return res.status(404).json({ message: "Комментарии не найдены" });
-    }
+    const comment = await Comment.findOne({
+      where: { id: newComment.id },
+      include: [User],
+    });
 
-    res.json(comments);
+    res.status(201).json(comment);
   } catch (error) {
-    console.error("Ошибка при загрузке комментариев:", error);
-    res.status(500).json({ error: "Ошибка сервера" });
+    console.error(error);
+    res.status(500).send("Ошибка сервера");
   }
 });
 

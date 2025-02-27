@@ -2,15 +2,17 @@ const express = require("express");
 const { Tea } = require("../../db/models");
 const router = express.Router();
 
-// Получить все чаи
 router.get("/", async (req, res) => {
   try {
     const teas = await Tea.findAll();
     res.json(teas);
   } catch (error) {
-    res.status(500).json({ error: "Ошибка при получении чаёв" });
+    console.error(error);
+    res.status(500).send("Ошибка сервера");
   }
 });
+
+module.exports = router;
 
 // Добавить новый чай
 router.post("/", async (req, res) => {
