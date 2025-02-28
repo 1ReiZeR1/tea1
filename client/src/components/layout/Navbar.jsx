@@ -61,7 +61,7 @@ function Navbar() {
           _hover={{ color: "rgb(131, 131, 131)" }}
           fontSize="xl"
           fontWeight="bold"
-          ml="20px"
+          ml="60px"
           color={"black"}
           href="/"
         >
