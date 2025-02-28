@@ -26,18 +26,35 @@ const SvgMapComponent = () => {
           applyData: "gdp",
           values: {
             CN: {
-              // ПОМЕНЯТЬ РУТЫ
               gdp: "Эрл Грей, Белый чай Бай Му Дань, Улун Те Гуань Инь, Пуэр, Жасминовый чай, Лапсанг Сушонг, Хуан Шань Мао Фэн",
               link: "/teas?location=cn",
             },
-            IN: { gdp: "Дарджилинг, Ассам", link: "/teas?location=in", color:"yellow" },
+            IN: {
+              gdp: "Дарджилинг, Ассам",
+              link: "/teas?location=in",
+              color: "yellow",
+            },
             JP: {
               gdp: "Зелёный чай Сенча, Маття, Спирулина Чай",
               link: "/teas?location=jp",
             },
-            ZA: { gdp: "Ройбуш", link: "/teas?location=za", color:"yellow" },
-            EG: { gdp: "Мята перечная", link: "/teas?location=eg", color:"yellow" },
-            // ПОМЕНЯТЬ РУТЫ
+            TW: { gdp: "Габа Чай", link: "/teas?location=tw", color: "yellow" },
+            ZA: { gdp: "Ройбуш", link: "/teas?location=za", color: "yellow" },
+            EG: {
+              gdp: "Мята перечная",
+              link: "/teas?location=eg",
+              color: "yellow",
+            },
+            BR: {
+              gdp: "Бразильский Зелёный Чай, Бразильский Чёрный Чай",
+              link: "/teas?location=br",
+              color: "yellow",
+            },
+            LK: {
+              gdp: "Цейлонский чай (Димбула), Кандийский чай, Рухуна",
+              link: "/teas?location=lk",
+            },
+            AF: { gdp: "Афганский Зелёный Чай", link: "/teas?location=af" },
           },
         },
       });
@@ -46,8 +63,7 @@ const SvgMapComponent = () => {
 
   return (
     <>
-      <div id="svgMap" style={{ width: "80%", justifyContent:"center" }}>  
-      </div>
+      <div id="svgMap" style={{ width: "80%", justifyContent: "center" }}></div>
     </>
   );
 };
