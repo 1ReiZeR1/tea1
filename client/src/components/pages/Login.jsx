@@ -2,7 +2,7 @@ import { useState } from "react";
 import axiosInstance from "../utils/axiosInstanse"; 
 import { useUser } from "../utils/UserContext";
 import { useNavigate } from "react-router-dom"; 
-import { Center, Input, Button } from "@chakra-ui/react";
+import { Center, Input, Button, VStack, Box, FormLabel, Heading } from "@chakra-ui/react";
 
 const Login = () => {
   const { setUser } = useUser(); 
@@ -50,12 +50,31 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Вход</h2>
+    <Center h="100vh">
+    <Box 
+ 
+   
+    mt={0}
+    mb={60}
+    w={350}
+    h={350}
+    p={6}
+    borderWidth={1}
+    borderRadius={40}
+    borderColor="#e60023"
+    boxShadow="0 0 10px rgba(255, 0, 0, 0.3)"
+    backgroundColor={"#F8F8FF"}
+>
+    <VStack >
+      <Heading mt={36}>Вход</Heading>
       <form onSubmit={handleSubmit}>
-        <Center gap={"5x"} flexDirection={"column"} mt={20}>
-          <label htmlFor="email">email:</label>
-          <Input
+        <Center gap={"5x"} flexDirection={"column"} mt={0}>
+          <FormLabel htmlFor="email">email:</FormLabel>
+          <Input 
+            minH={20}
+            minW={240}
+            borderRadius="20px"
+            mt={10}
             type="text"
             id="email"
             name="email"
@@ -63,8 +82,13 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <label htmlFor="password">Пароль:</label>
+          <FormLabel mt={10}  htmlFor="password">Пароль:</FormLabel>
           <Input
+
+           minW={240}
+           borderRadius="20px"           
+            minH={20}
+            mt={10}
             type="password"
             id="password"
             name="password"
@@ -78,9 +102,15 @@ const Login = () => {
             {error}
           </p>
         )}
-        <Button mt={20} type="submit">Войти</Button>
+        <Button 
+        mt={30}
+
+        _hover={{ bg: "black", color: "white", borderColor: "black" }}
+        type="submit">Войти</Button>
       </form>
-    </div>
+    </VStack>
+    </Box>
+      </Center>
   );
 };
 

@@ -195,7 +195,7 @@ function Profile() {
           <VStack columns={{ base: 1, md: 2, lg: 3 }} spacing={6} width="100%" maxWidth="1200px">
             {teaList.map((tea) => (
               <VStack
-                mt={2}
+                mt={20}
                 mb={20}
                 transition="transform 0.2s ease-in-out"
                 _hover={{ transform: "scale(1.05)" }}
