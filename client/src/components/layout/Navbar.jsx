@@ -4,6 +4,7 @@ import { useUser } from "../utils/UserContext";
 import axiosInstance from "../utils/axiosInstanse";
 import { Center, Text, Box, Flex, Link as ChakraLink } from "@chakra-ui/react";
 
+
 function Navbar() {
   const { user, setUser } = useUser();
 
@@ -28,7 +29,8 @@ function Navbar() {
   async function logout() {
     try {
       await axiosInstance.get("api/auth/logout", { withCredentials: true });
-      setUser(null);
+      await setUser(null);
+      window.location.href = '/'
     } catch (error) {
       console.error("Ошибка при выходе:", error);
     }
@@ -117,6 +119,7 @@ function Navbar() {
                 <ChakraLink
                   _hover={{ color: "rgb(131, 131, 131)" }}
                   onClick={logout}
+                 
                   color={"black"}
                 >
                   Выход
