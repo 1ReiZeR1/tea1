@@ -63,7 +63,7 @@ const SvgMapComponent = () => {
 
   return (
     <>
-      <div id="svgMap" style={{ width: "80%", justifyContent: "center" }}></div>
+      <div id="svgMap" style={{ width: "80%", justifyContent: "center", }}></div>
     </>
   );
 };
