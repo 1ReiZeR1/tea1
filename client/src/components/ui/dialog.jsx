@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Dialog as ChakraDialog, Portal } from '@chakra-ui/react'
 import { CloseButton } from './close-button'
 import * as React from 'react'

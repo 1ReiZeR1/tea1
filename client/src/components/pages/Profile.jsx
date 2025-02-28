@@ -97,7 +97,7 @@ function Profile() {
   }
 
   return (
-    <Center flexDirection="column" mt={60} mb={0} pb={140} textAlign="center">
+    <Center flexDirection="column" mt={40} mb={0} pb={140} textAlign="center">
       <Text fontSize="2xl" fontWeight="bold">
         {user?.name ? `Привет, ${user.name}!` : "Вы не авторизованы"}
       </Text>
@@ -196,7 +196,7 @@ function Profile() {
             {teaList.map((tea) => (
               <VStack
                 mt={2}
-                mb={2}
+                mb={20}
                 transition="transform 0.2s ease-in-out"
                 _hover={{ transform: "scale(1.05)" }}
                 key={tea.id}
