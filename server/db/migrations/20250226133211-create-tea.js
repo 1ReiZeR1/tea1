@@ -34,12 +34,14 @@ module.exports = {
         onUpdate: 'CASCADE'
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: new Date(),
+        type: Sequelize.DATE,
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: new Date(),
+        type: Sequelize.DATE,
+        allowNull: false
       }
     });
   },

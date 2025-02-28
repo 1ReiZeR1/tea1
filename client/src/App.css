@@ -1,6 +1,7 @@
 body {
   background-color: #ffffff;
   height: 1700px;
+  font-family: "Montserrat", sans-serif;
 }
 
 #root {
@@ -47,12 +48,15 @@ body {
 }
 
 .tea_birth {
-font-weight: bold;
-color: black;
-font-size: 35px;
-/* border: 2px solid beige; */
-width: 98%;
-border-radius: 15px;
+  font-weight: bold;
+  width: 98%;
+  border-radius: 15px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.75rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
 .plantation {
